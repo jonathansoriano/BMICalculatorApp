@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMICalculatorApp.BMICalculator"
+             Title="BMICalculator">
+    <Grid
+        RowDefinitions="Auto,Auto,*,*,*"
+        ColumnDefinitions="*,*"
+        Margin="20"
+        ColumnSpacing="20"
+        RowSpacing="20">
+        <Label
+            Grid.ColumnSpan="2"
+            Text="BMI Calculator"
+            FontSize="Large"/>
+        <Frame
+            Grid.Row="1"
+            Padding="20"
+            CornerRadius="15"
+            HasShadow="True"
+            x:Name="FrameMale">
+            <VerticalStackLayout
+                Spacing="10">
+                <Image
+                    Source="male.png"
+                    HeightRequest="100"/>
+                <Label
+                    Text="Male"
+                    FontSize="Body"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_MaleTapped"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame
+            Grid.Row="1"
+            Grid.Column="1"
+            Padding="20"
+            CornerRadius="15"
+            HasShadow="True"
+            x:Name="FrameFemale">
+            <VerticalStackLayout
+                Spacing="10">
+                <Image
+                    Source="female.png"
+                    HeightRequest="100"/>
+                <Label
+                    Text="Female"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_FemaleTapped"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Padding="20"
+            CornerRadius="15"
+            HasShadow="True"
+            x:Name="SliderHeight">
+            <VerticalStackLayout
+                Spacing="10">
+                <Label
+                    Text="Height (inches)"
+                    FontSize="Body"
+                    HorizontalOptions="Center"/>
+                <Slider
+                    x:Name="HeightSlider"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="50"/>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding Source={Reference HeightSlider},Path=Value, StringFormat='{0:F0}'}"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    x:Name="LabelHeight"/>
+            </VerticalStackLayout>
+        </Frame>
+        <Frame
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Padding="20"
+            CornerRadius="15"
+            HasShadow="True"
+            x:Name="SliderWeight">
+            <VerticalStackLayout
+                Spacing="10">
+                <Label
+                    Text="Weight (lbs)"
+                    FontSize="Body"
+                    HorizontalOptions="Center"/>
+                <Slider
+                    x:Name="WeightSlider"
+                    Minimum="0"
+                    Maximum="300"
+                    Value="90"/>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding Source={Reference WeightSlider},Path=Value, StringFormat='{0:F0}'}"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    x:Name="LabelWeight"/>
+            </VerticalStackLayout>
+        </Frame>
+        <Button
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            x:Name="CalculateButton"
+            Text="Calculate Your BMI"
+            FontSize="Body"
+            VerticalOptions="End"
+            Clicked="Button_Clicked"/>
+
+
+
+    </Grid>
+    
+</ContentPage>
