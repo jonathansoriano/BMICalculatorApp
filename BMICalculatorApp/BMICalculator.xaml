@@ -4,7 +4,7 @@
              x:Class="BMICalculatorApp.BMICalculator"
              Title="BMICalculator">
     <Grid
-        RowDefinitions="Auto,Auto,*,*,*"
+        RowDefinitions="Auto,Auto,*,*,Auto"
         ColumnDefinitions="*,*"
         Margin="20"
         ColumnSpacing="20"
@@ -59,7 +59,7 @@
             Padding="20"
             CornerRadius="15"
             HasShadow="True"
-            x:Name="SliderHeight">
+            x:Name="FrameHeight">
             <VerticalStackLayout
                 Spacing="10">
                 <Label
@@ -85,7 +85,7 @@
             Padding="20"
             CornerRadius="15"
             HasShadow="True"
-            x:Name="SliderWeight">
+            x:Name="FrameWeight">
             <VerticalStackLayout
                 Spacing="10">
                 <Label

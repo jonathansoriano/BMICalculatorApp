@@ -40,7 +40,7 @@ public partial class BMICalculator : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
 
-        Person person = GetBMIResults(HeightSlider.Value, WeightSlider.Value, selectedGender);
+        Person person = GetBMIResults(Math.Round(HeightSlider.Value, 1, MidpointRounding.AwayFromZero), Math.Round(WeightSlider.Value, 1, MidpointRounding.AwayFromZero), selectedGender);
 
         string HealthRecommendationMessage = $"Gender: {person.Gender}\n" +
                     $"BMI: {person.BMI}\n" +
