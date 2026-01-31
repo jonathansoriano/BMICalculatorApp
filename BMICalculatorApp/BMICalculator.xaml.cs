@@ -24,23 +24,23 @@ public partial class BMICalculator : ContentPage
     private void TapGestureRecognizer_MaleTapped(object sender, TappedEventArgs e)
     {
         selectedGender = "Male";
-        FrameMale.BorderColor = Colors.Black;
-        FrameFemale.BorderColor = Colors.LightGray;
+        FrameMale.BorderColor = Colors.LimeGreen;
+        
 
     }
 
     private void TapGestureRecognizer_FemaleTapped(object sender, TappedEventArgs e)
     {
         selectedGender = "Female";
-        FrameFemale.BorderColor = Colors.Black;
-        FrameMale.BorderColor = Colors.LightGray;
+        FrameFemale.BorderColor = Colors.LimeGreen;
+        
 
     }
 
     private void Button_Clicked(object sender, EventArgs e)
     {
 
-        Person person = GetBMIResults(Math.Round(HeightSlider.Value, 1, MidpointRounding.AwayFromZero), Math.Round(WeightSlider.Value, 1, MidpointRounding.AwayFromZero), selectedGender);
+        Person person = GetBMIResults(Math.Round(HeightSlider.Value, MidpointRounding.AwayFromZero), Math.Round(WeightSlider.Value, MidpointRounding.AwayFromZero), selectedGender);
 
         string HealthRecommendationMessage = $"Gender: {person.Gender}\n" +
                     $"BMI: {person.BMI}\n" +
